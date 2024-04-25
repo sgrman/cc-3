@@ -13,7 +13,19 @@
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		console.log("Logging: " + request.url)
-		return new Response('Hello World!');
-	},
-};
+	  if(request.url == "https://hello-worker.scottieray.workers.dev") {
+		  return new Response('Hello World!' , {
+			headers: {
+				'content-type': 'text/plain',
+			},
+		  });
+		}
+		else{
+			return new Response('Error Worker! You Used the Wrong URL!', {
+				headers: {
+					'content-type': 'text-plain',
+				},
+			});
+		}
+	 }
+	}
