@@ -14,17 +14,17 @@
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
 		console.log("Logging: " + request.url)
-	if(request.url == "https://hello-worker.scottieray.workers.dev/test") {
-	  	return new Response('Hello World!' , {
+	if(request.method == "POST") {
+	  	return new Response('Hello World from via POST method' , {
 			headers: {
-				'content-type': 'text/plain',
+				'content-type': 'application/json',
 			},
 		  });
 		}
 		else{
-			return new Response('Error Worker! You Used the Wrong URL!', {
+			return new Response('This not a POST method request', {
 				headers: {
-					'content-type': 'text/plain',
+					'content-type': 'application/json',
 				},
 			});
 		}
