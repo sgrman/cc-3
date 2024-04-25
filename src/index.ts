@@ -13,7 +13,8 @@
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-	  if(request.url == "https://hello-worker.scottieray.workers.dev/test") {
+		console.log("Logging: " + request.url)
+	if(request.url == "https://hello-worker.scottieray.workers.dev/test") {
 	  	return new Response('Hello World!' , {
 			headers: {
 				'content-type': 'text/plain',
