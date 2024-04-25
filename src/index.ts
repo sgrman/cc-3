@@ -14,7 +14,7 @@
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
 	  if(request.url == "https://hello-worker.scottieray.workers.dev") {
-		  return new Response('Hello World!' , {
+	  	return new Response('Hello World!' , {
 			headers: {
 				'content-type': 'text/plain',
 			},
@@ -23,7 +23,7 @@ export default {
 		else{
 			return new Response('Error Worker! You Used the Wrong URL!', {
 				headers: {
-					'content-type': 'text-plain',
+					'content-type': 'text/plain',
 				},
 			});
 		}
