@@ -15,14 +15,14 @@ export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
 		console.log("Logging: " + request.url)
 	if(request.method == "POST") {
-	  	return new Response('Hello World from via POST method' , {
+	  	return new Response('Thank you for using the POST method.' , {
 			headers: {
 				'content-type': 'application/json',
 			},
 		  });
 		}
 		else{
-			return new Response('This not a POST method request', {
+			return new Response('Sorry, you did not use the POST method.', {
 				headers: {
 					'content-type': 'application/json',
 				},
