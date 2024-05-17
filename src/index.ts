@@ -12,21 +12,21 @@
  */
 
 export default {
-	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		console.log("Logging: " + request.url)
-	if(request.method == "POST") {
-	  	return new Response('Thank you for using the POST method.' , {
-			headers: {
-				'content-type': 'application/json',
-			},
-		  });
-		}
-		else{
-			return new Response('Sorry, you did not use the POST method.', {
-				headers: {
-					'content-type': 'application/json',
-				},
-			});
-		}
-	 }
+	async fetch(request, env, ctx) {
+	
+	//Variables for this exercise
+	const url = "https://sgrdemo.com"
+	const boturl = "https://httpbin.org/get";
+	
+	//check if BotScore is <30
+	if (request.cf.botManagement.score <30) {
+		return await fetch(boturl, request)
 	}
+
+	//if it was not below 30, then send to original
+	else {
+		return await fetch (url, request)
+	}
+	}
+
+}
