@@ -15,7 +15,7 @@ export default {
 	async fetch(request, env, ctx) {
 	
 	//Variables for this exercise
-	const url = "https://sgrdemo.com"
+	const url = "www.sgrdemo.com"
 	const boturl = "https://httpbin.org/get";
 	
 	//check if BotScore is <30
